@@ -1,0 +1,160 @@
+/* color scheme sourced from http://khroma.co/generator/ */
+:root {
+  --main-backgroundlight: #c4d3cb;
+  --highlight: #c4c9f1;
+  --textcolor:#1b3f2c;
+  --heliotrope: #128a76;
+  --textdark: black;
+  --textmedium:blue;
+
+}
+
+html {
+  /* set 1rem to 10px instead of native 16px to make it easier to calculate font-size values for the rest of the page (e.g. 1.6rem is 16px, 2.0rem is 20px, etc.) */
+  font-size: 100%;
+  background-color: var(--main-backgroundlight);
+}
+
+body {
+  /* Sans Serif font stack is implemented to help select the best font for each type of computer operating system */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  /* set body font size to 1.75rem, which is 1.75x more than the font-size of 10px, making it 17.5px  */
+  font-size: 2.5rem;
+  line-height: 3.5;
+  color: var(--textdark);
+  background-color: var(--main-backgroundlight);
+}
+
+
+
+h2 .page-title {
+  margin: 20 20;
+  padding: 10rem 12.0rem;
+  font-size: 20rem;
+  text-align: center;
+ }
+
+ nav ul li{
+  display:inline-block;
+  margin-left:25px;
+  margin-right:25px;
+  font-weight: bolder;
+  font-style: oblique;
+  font-size: 1.rem;
+  line-height: 2.0rem;
+  border-color:var(--highlight) ;
+}
+
+/* create our main grid with flexbox, use negative margins to offset the padding on the .project-column class */
+.row {
+  display: flex;
+  flex-wrap:nowrap;
+  flex-direction: row;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  font-size: 1.8rem;
+  background-color:var(--main-backgroundlight) ;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* using a mobile-first approach, set base column width to be 100% and we'll update it using media queries for larger screen sizes */
+.project-column {
+  flex: 2 0 50%;
+  padding: 1.5rem;
+  align-items: center;
+  /* when the screen resizes, make it so our columns don't jump in size */
+  transition: flex-basis 500ms linear;
+  margin-bottom: 1.5rem;
+  background-color:var(--main-backgroundlight) ;
+}
+
+/* make each box project a flexbox column to align and justify content within it */
+.box-project {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 25%;
+  padding: 2rem;
+  color: var(--textcolor);
+ background-color:var(--main-backgroundlight);
+  /* outline is on the outside of the box instead of inside */
+  outline: 2px ridge var(--highlight);
+  outline-offset: -2px;
+  transition: all 0.5s ease-in-out;
+}
+
+.project-header {
+  /* use position and negative margins to move title of project over the project's outline and create an overlap effect */
+  align-items: center;
+  position: relative;
+  margin: -4rem 0 1.5rem 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--main-backgroundlight); 
+  color: var(--textmedium);
+  border: 2px solid var(--textdark);
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+  font-size: 1.80rem;
+}
+
+
+.box-project {
+  /* set styles to make it so box wraps in <pre> instead of overflowing */
+  align-items: center;
+  tab-size: 4;
+  padding: 1.2rem 1rem;
+  color: var(--textdark);
+  border-radius: 8px;
+  display: flex;
+}
+img{
+  padding:30px;
+  margin:30px;
+}
+
+.image {
+ max-width:100%;
+ height: auto;
+}
+
+/* using a mobile-first approach, use `min-width` values going from narrow -> wide for a responsive design */
+@media screen and (min-width: 768px) {
+  /* on tablets, set columns to only be 50% of the width and not grow */
+  .project-column .project-header {
+    align-items: center;
+    flex: 0 0 50%;
+    max-width: 50%;
+    font-size: 1rem;
+ }
+ img{
+   max-height: 45%;
+   max-width:35%;
+ } 
+}
+ 
+
+
+/* media query for larger screens */
+@media screen and (min-width: 992px) {
+  header {
+    width: 75%;
+    align-items: center;  }
+
+  .project-column .project-header{
+    flex: 0 0 50%;
+    max-width: 50%;
+     align-items: center;
+  }
+   img{
+   max-height: 45%;
+   max-width:35%;
+ } 
+}
+
+
+
